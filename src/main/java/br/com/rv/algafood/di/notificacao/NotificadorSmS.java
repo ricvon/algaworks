@@ -1,9 +1,11 @@
 package br.com.rv.algafood.di.notificacao;
 
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import br.com.rv.algafood.di.modelo.Cliente;
 
+@Primary
 @Component 
 public class NotificadorSmS implements Notificador{
 	@Override

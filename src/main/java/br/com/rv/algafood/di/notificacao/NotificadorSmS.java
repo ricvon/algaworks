@@ -4,6 +4,7 @@ import org.springframework.stereotype.Component;
 
 import br.com.rv.algafood.di.modelo.Cliente;
 
+
 @TipoDoNotificador(NivelUrgencia.NORMAL)
 @Component 
 public class NotificadorSmS implements Notificador{

@@ -1,10 +1,11 @@
 package br.com.rv.algafood.di.notificacao;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import br.com.rv.algafood.di.modelo.Cliente;
 
-//@Primary
+@Qualifier("email")
 @Component 
 public class NotificadorEmail implements Notificador{
 	@Override

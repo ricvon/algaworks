@@ -1,10 +1,10 @@
 package br.com.rv.algafood.di.notificacao;
 
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import br.com.rv.algafood.di.modelo.Cliente;
-@Qualifier("sms")
+
+@TipoDoNotificador(NivelUrgencia.NORMAL)
 @Component 
 public class NotificadorSmS implements Notificador{
 	@Override

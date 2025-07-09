@@ -5,11 +5,13 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import br.com.rv.algafood.di.modelo.Cliente;
+import br.com.rv.algafood.di.notificacao.NivelUrgencia;
 import br.com.rv.algafood.di.notificacao.Notificador;
+import br.com.rv.algafood.di.notificacao.TipoDoNotificador;
 
 @Component // comentei para configurar a instanciação via @Bean no AlgaConfig
 public class AtivacaoClienteService {
-	@Qualifier("sms")
+	@TipoDoNotificador(NivelUrgencia.NORMAL)	
 	@Autowired
 	private Notificador notificador;
 

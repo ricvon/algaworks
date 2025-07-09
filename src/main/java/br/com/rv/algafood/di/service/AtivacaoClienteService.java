@@ -1,21 +1,23 @@
 package br.com.rv.algafood.di.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
 import br.com.rv.algafood.di.modelo.Cliente;
 import br.com.rv.algafood.di.notificacao.Notificador;
 
-//@Component --comentei para configurar a instanciação via @Bean no AlgaConfig
+@Component // comentei para configurar a instanciação via @Bean no AlgaConfig
 public class AtivacaoClienteService {
+	@Autowired(required=false)
 	private Notificador notificador;
-	
-	public AtivacaoClienteService(Notificador notificador) {
-		this.notificador=notificador;	
-		System.out.println("Construtor Ativador Cliente Service:"+notificador);		
-	}
-	
+
 	public void ativar(Cliente cliente) {
 		cliente.ativar();
-		
-		//NotificadorEmail notificador = new NotificadorEmail();
-		this.notificador.notificar(cliente, "Seu cadastro no sistema está ativo!");
+
+		if (notificador != null) {
+			this.notificador.notificar(cliente, "Seu cadastro no sistema está ativo!");
+		} else {
+			System.out.println("Não existe notificador, mas cliente foi ativado");
+		}
 	}
 }

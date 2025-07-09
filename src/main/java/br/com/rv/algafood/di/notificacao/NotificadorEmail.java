@@ -1,8 +1,10 @@
 package br.com.rv.algafood.di.notificacao;
 
+import org.springframework.stereotype.Component;
+
 import br.com.rv.algafood.di.modelo.Cliente;
 
-//@Component //comentei para simular uma ausência do bean notificador
+@Component 
 public class NotificadorEmail implements Notificador{
 	@Override
 	public void notificar (Cliente cliente, String mensagem) {
